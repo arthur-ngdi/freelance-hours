@@ -18,8 +18,11 @@ class DatabaseSeeder extends Seeder
             ->count(200)
             ->create();
             
-        Project::factory()
-            ->count(10)
-            ->create();
+        User::query()->inRandomOrder()->limit(10)->get()
+            ->each(fn (User $u) => Project::factory()->create(['created_by' => $u->id]));
+
+        // Project::factory()
+        //     ->count(10)
+        //     ->create();
     }
 }
