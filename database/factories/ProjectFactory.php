@@ -17,7 +17,12 @@ class ProjectFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title'=>fake()->words(5),
+            'description'=>fake()->randomHtml(),
+            'ends_at'=>fake()->dateTimeBetween('now',' +3 days'),
+            'status'=>fake()->randomElement(['open', 'closed']),
+            'tech_stack'=>fake()->randomElements(['react', 'laravel', 'php', 'vue', 'react', 'tailwind', 'javascript', 'nextjs', 'python'], random_int(1,5)),
+            'create_by'=>User::factory()   
         ];
     }
 }
