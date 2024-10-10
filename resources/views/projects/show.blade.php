@@ -1,3 +1,4 @@
-<div>
-    <!-- Do what you can, with what you have, where you are. - Theodore Roosevelt -->
-</div>
+<x-layouts.app>
+   <livewire:project.show :$project/>
+    <livewire:project.proposals :$project/>
+</x-layouts.app>
